@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE0102DF153B56AD00CA2EE6 /* TankDataPoints.pts in Resources */ = {isa = PBXBuildFile; fileRef = AE0102DE153B56AD00CA2EE6 /* TankDataPoints.pts */; };
 		AE8B05C11539E3EC00FFD3BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8B05C01539E3EC00FFD3BA /* UIKit.framework */; };
 		AE8B05C31539E3EC00FFD3BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8B05C21539E3EC00FFD3BA /* Foundation.framework */; };
 		AE8B05C51539E3EC00FFD3BA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8B05C41539E3EC00FFD3BA /* CoreGraphics.framework */; };
@@ -21,6 +22,13 @@
 		AE8B05E41539E3EC00FFD3BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8B05C21539E3EC00FFD3BA /* Foundation.framework */; };
 		AE8B05EC1539E3EC00FFD3BA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AE8B05EA1539E3EC00FFD3BA /* InfoPlist.strings */; };
 		AE8B05EF1539E3EC00FFD3BA /* BHBattleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8B05EE1539E3EC00FFD3BA /* BHBattleTests.m */; };
+		AE8B05FE1539F69000FFD3BA /* BHBOpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8B05FD1539F69000FFD3BA /* BHBOpenGLView.m */; };
+		AE8B06041539F99900FFD3BA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8B06031539F99900FFD3BA /* OpenGLES.framework */; };
+		AE8B06061539FAEF00FFD3BA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8B06051539FAEF00FFD3BA /* QuartzCore.framework */; };
+		AEBD2B76153F562500BC7055 /* matrixMath.c in Sources */ = {isa = PBXBuildFile; fileRef = AEBD2B74153F562500BC7055 /* matrixMath.c */; };
+		AEBD2B7C153F57EF00BC7055 /* simpleVertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = AEBD2B7A153F57EF00BC7055 /* simpleVertex.glsl */; };
+		AEBD2B7D153F57EF00BC7055 /* simpleFragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = AEBD2B7B153F57EF00BC7055 /* simpleFragment.glsl */; };
+		AEBD2B80153F97F300BC7055 /* BHBCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBD2B7F153F97F300BC7055 /* BHBCamera.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,26 +42,40 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AE0102DE153B56AD00CA2EE6 /* TankDataPoints.pts */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TankDataPoints.pts; sourceTree = "<group>"; };
+		AE0102E3153B57D200CA2EE6 /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
+		AE0102E4153B57D200CA2EE6 /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
 		AE8B05BC1539E3EC00FFD3BA /* BHBattle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BHBattle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE8B05C01539E3EC00FFD3BA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AE8B05C21539E3EC00FFD3BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AE8B05C41539E3EC00FFD3BA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		AE8B05C81539E3EC00FFD3BA /* BHBattle-Info.plist */ = {isa = PBXFileReference; path = "BHBattle-Info.plist"; sourceTree = "<group>"; };
+		AE8B05C81539E3EC00FFD3BA /* BHBattle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BHBattle-Info.plist"; sourceTree = "<group>"; };
 		AE8B05CA1539E3EC00FFD3BA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AE8B05CC1539E3EC00FFD3BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		AE8B05CE1539E3EC00FFD3BA /* BHBattle-Prefix.pch */ = {isa = PBXFileReference; path = "BHBattle-Prefix.pch"; sourceTree = "<group>"; };
-		AE8B05CF1539E3EC00FFD3BA /* BHBAppDelegate.h */ = {isa = PBXFileReference; path = BHBAppDelegate.h; sourceTree = "<group>"; };
+		AE8B05CE1539E3EC00FFD3BA /* BHBattle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BHBattle-Prefix.pch"; sourceTree = "<group>"; };
+		AE8B05CF1539E3EC00FFD3BA /* BHBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BHBAppDelegate.h; sourceTree = "<group>"; };
 		AE8B05D01539E3EC00FFD3BA /* BHBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BHBAppDelegate.m; sourceTree = "<group>"; };
 		AE8B05D31539E3EC00FFD3BA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		AE8B05D61539E3EC00FFD3BA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		AE8B05D81539E3EC00FFD3BA /* BHBViewController.h */ = {isa = PBXFileReference; path = BHBViewController.h; sourceTree = "<group>"; };
+		AE8B05D81539E3EC00FFD3BA /* BHBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BHBViewController.h; sourceTree = "<group>"; };
 		AE8B05D91539E3EC00FFD3BA /* BHBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BHBViewController.m; sourceTree = "<group>"; };
 		AE8B05E01539E3EC00FFD3BA /* BHBattleTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BHBattleTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE8B05E11539E3EC00FFD3BA /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		AE8B05E91539E3EC00FFD3BA /* BHBattleTests-Info.plist */ = {isa = PBXFileReference; path = "BHBattleTests-Info.plist"; sourceTree = "<group>"; };
+		AE8B05E91539E3EC00FFD3BA /* BHBattleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BHBattleTests-Info.plist"; sourceTree = "<group>"; };
 		AE8B05EB1539E3EC00FFD3BA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		AE8B05ED1539E3EC00FFD3BA /* BHBattleTests.h */ = {isa = PBXFileReference; path = BHBattleTests.h; sourceTree = "<group>"; };
+		AE8B05ED1539E3EC00FFD3BA /* BHBattleTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BHBattleTests.h; sourceTree = "<group>"; };
 		AE8B05EE1539E3EC00FFD3BA /* BHBattleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BHBattleTests.m; sourceTree = "<group>"; };
+		AE8B05FC1539F69000FFD3BA /* BHBOpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHBOpenGLView.h; sourceTree = "<group>"; };
+		AE8B05FD1539F69000FFD3BA /* BHBOpenGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHBOpenGLView.m; sourceTree = "<group>"; };
+		AE8B06031539F99900FFD3BA /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		AE8B06051539FAEF00FFD3BA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		AEBD2B74153F562500BC7055 /* matrixMath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = matrixMath.c; sourceTree = "<group>"; };
+		AEBD2B75153F562500BC7055 /* matrixMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = matrixMath.h; sourceTree = "<group>"; };
+		AEBD2B78153F56E400BC7055 /* squareVertices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = squareVertices.h; sourceTree = "<group>"; };
+		AEBD2B7A153F57EF00BC7055 /* simpleVertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = simpleVertex.glsl; sourceTree = "<group>"; };
+		AEBD2B7B153F57EF00BC7055 /* simpleFragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = simpleFragment.glsl; sourceTree = "<group>"; };
+		AEBD2B7E153F97F300BC7055 /* BHBCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHBCamera.h; sourceTree = "<group>"; };
+		AEBD2B7F153F97F300BC7055 /* BHBCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHBCamera.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,9 +83,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE8B06041539F99900FFD3BA /* OpenGLES.framework in Frameworks */,
 				AE8B05C11539E3EC00FFD3BA /* UIKit.framework in Frameworks */,
 				AE8B05C31539E3EC00FFD3BA /* Foundation.framework in Frameworks */,
 				AE8B05C51539E3EC00FFD3BA /* CoreGraphics.framework in Frameworks */,
+				AE8B06061539FAEF00FFD3BA /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +130,8 @@
 				AE8B05C21539E3EC00FFD3BA /* Foundation.framework */,
 				AE8B05C41539E3EC00FFD3BA /* CoreGraphics.framework */,
 				AE8B05E11539E3EC00FFD3BA /* SenTestingKit.framework */,
+				AE8B06031539F99900FFD3BA /* OpenGLES.framework */,
+				AE8B06051539FAEF00FFD3BA /* QuartzCore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -119,7 +145,16 @@
 				AE8B05D51539E3EC00FFD3BA /* MainStoryboard_iPad.storyboard */,
 				AE8B05D81539E3EC00FFD3BA /* BHBViewController.h */,
 				AE8B05D91539E3EC00FFD3BA /* BHBViewController.m */,
+				AE8B05FC1539F69000FFD3BA /* BHBOpenGLView.h */,
+				AE8B05FD1539F69000FFD3BA /* BHBOpenGLView.m */,
+				AEBD2B7E153F97F300BC7055 /* BHBCamera.h */,
+				AEBD2B7F153F97F300BC7055 /* BHBCamera.m */,
+				AE0102DE153B56AD00CA2EE6 /* TankDataPoints.pts */,
 				AE8B05C71539E3EC00FFD3BA /* Supporting Files */,
+				AEBD2B78153F56E400BC7055 /* squareVertices.h */,
+				AEBD2B74153F562500BC7055 /* matrixMath.c */,
+				AEBD2B75153F562500BC7055 /* matrixMath.h */,
+				AE8B0607153A02AA00FFD3BA /* Shaders */,
 			);
 			path = BHBattle;
 			sourceTree = "<group>";
@@ -152,6 +187,17 @@
 				AE8B05EA1539E3EC00FFD3BA /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AE8B0607153A02AA00FFD3BA /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				AEBD2B7A153F57EF00BC7055 /* simpleVertex.glsl */,
+				AEBD2B7B153F57EF00BC7055 /* simpleFragment.glsl */,
+				AE0102E3153B57D200CA2EE6 /* Shader.fsh */,
+				AE0102E4153B57D200CA2EE6 /* Shader.vsh */,
+			);
+			name = Shaders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +274,9 @@
 				AE8B05CB1539E3EC00FFD3BA /* InfoPlist.strings in Resources */,
 				AE8B05D41539E3EC00FFD3BA /* MainStoryboard_iPhone.storyboard in Resources */,
 				AE8B05D71539E3EC00FFD3BA /* MainStoryboard_iPad.storyboard in Resources */,
+				AE0102DF153B56AD00CA2EE6 /* TankDataPoints.pts in Resources */,
+				AEBD2B7C153F57EF00BC7055 /* simpleVertex.glsl in Resources */,
+				AEBD2B7D153F57EF00BC7055 /* simpleFragment.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +314,9 @@
 				AE8B05CD1539E3EC00FFD3BA /* main.m in Sources */,
 				AE8B05D11539E3EC00FFD3BA /* BHBAppDelegate.m in Sources */,
 				AE8B05DA1539E3EC00FFD3BA /* BHBViewController.m in Sources */,
+				AE8B05FE1539F69000FFD3BA /* BHBOpenGLView.m in Sources */,
+				AEBD2B76153F562500BC7055 /* matrixMath.c in Sources */,
+				AEBD2B80153F97F300BC7055 /* BHBCamera.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +496,7 @@
 				AE8B05F41539E3EC00FFD3BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AE8B05F51539E3EC00FFD3BA /* Build configuration list for PBXNativeTarget "BHBattleTests" */ = {
 			isa = XCConfigurationList;
@@ -452,6 +505,7 @@
 				AE8B05F71539E3EC00FFD3BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

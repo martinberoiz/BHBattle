@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BHBViewController : UIViewController
+@interface BHBViewController : UIViewController {
+    
+    EAGLContext *context;
+
+}
 
 @end

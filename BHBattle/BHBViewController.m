@@ -7,6 +7,7 @@
 //
 
 #import "BHBViewController.h"
+#import "BHBOpenGLView.h"
 
 @implementation BHBViewController
 
@@ -21,7 +22,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    
+
 }
 
 - (void)viewDidUnload
