@@ -109,16 +109,18 @@
     glEnable(GL_DEPTH_TEST);
     
     if (displayLink) {
-        _currentRotation += displayLink.duration * 30.;
-        x = 3.*cos(displayLink.timestamp * 6.2831/8.);
-        y = 0.; //3.*sin(displayLink.timestamp * 6.2831/8.);
+        x = 3.*cos(displayLink.timestamp * 6.2831/4.);
+        y = -7.; //3.*sin(displayLink.timestamp * 6.2831/4.);
+        z = 3.*sin(displayLink.timestamp * 6.2831/4.);
     } else {
-        _currentRotation = 0.;
+        x = 0.;
+        y = 0.;
+        z = -7.;
     }
 
-    [camera setCameraPositionAtX:x Y:y Z:7.];
-    [camera lookAt:0. Y:0. Z:0.];
-    [camera setUpVectorX:0. Y:1. Z:0.];
+    [camera setCameraPositionAtX:x Y:y Z:z];
+    [camera lookAt:x Y:0. Z:z];
+    [camera setUpVectorX:0. Y:0. Z:-1.];
     
     float proj[16];
     loadIdentityMatrix(proj);
@@ -131,8 +133,6 @@
     float mview[16];
     loadIdentityMatrix(mview);
     
-    
-    rotatev(_currentRotation, 0., 1., 0., mview);    
     [camera attachCameraToModel:mview];
     
     glUniformMatrix4fv(_modelViewUniform, 1, 0, mview);

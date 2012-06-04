@@ -14,6 +14,7 @@
 void normalize(float v[3]);
 void crossProd(float v1[3],float v2[3], float v3[3]);
 float angle(float v1[3], float v2[3]);
+float dotProd(float v1[3],float v2[3]);
 
 
 void normalize(float v[3]) {
@@ -24,6 +25,10 @@ void normalize(float v[3]) {
         v[2] /= norm;
     }
 
+}
+
+float dotProd(float v1[3],float v2[3]) {
+    return v1[0] * v2[0] + v1[1] * v2[1] + v1[2] * v2[2];
 }
 
 void crossProd(float v1[3],float v2[3], float v3[3]) {
@@ -38,10 +43,15 @@ float angle(float v1[3], float v2[3]) {
     float norm1 = sqrtf(v1[0] * v1[0] + v1[1] * v1[1] + v1[2] * v1[2]);
     float norm2 = sqrtf(v2[0] * v2[0] + v2[1] * v2[1] + v2[2] * v2[2]);
     
+    float cosAng;
+    
     if (norm1 == 0. || norm2 == 0.) {
         return 0.;
     } else {
-        return acosf((v1[0] * v2[0] + v1[1] * v2[1] + v1[2] * v2[2])/(norm1 * norm2));
+        cosAng = (v1[0] * v2[0] + v1[1] * v2[1] + v1[2] * v2[2])/(norm1 * norm2);
+        if (cosAng > 1.) return 0.;
+        if (cosAng < -1.) return M_PI;
+        return acosf(cosAng);
     }
 
 }
@@ -86,6 +96,7 @@ float angle(float v1[3], float v2[3]) {
     upVector[2] = z;
 }
 
+
 - (void)translateCameraByX:(float)x Y:(float)y Z:(float)z {
     position[0] += x;
     position[1] += y;
@@ -94,54 +105,37 @@ float angle(float v1[3], float v2[3]) {
 
 
 - (void)loadCameraMatrixInArray: (float *)cameraMatrix {
-    
-    float pointingDirection[3];
-    pointingDirection[0] = looksAt[0] - position[0];
-    pointingDirection[1] = looksAt[1] - position[1];
-    pointingDirection[2] = looksAt[2] - position[2];
         
+    float prime[3][3];
     
-    //This will set upVector to be perpendicular to pointingDirection
-    //in case it's not already. And it also creates the 'left' versor.
-    float leftVersor[3];
-    crossProd(upVector, pointingDirection, leftVersor);
-    crossProd(pointingDirection, leftVersor, upVector);
+    prime[2][0] = position[0] - looksAt[0];
+    prime[2][1] = position[1] - looksAt[1];
+    prime[2][2] = position[2] - looksAt[2];
+    crossProd(upVector, prime[2], prime[0]);
+    crossProd(prime[2], prime[0], prime[1]);
+    normalize(prime[0]);
+    normalize(prime[1]);
+    normalize(prime[2]);
     
-    loadIdentityMatrix(cameraMatrix);
+    //Create the rotation matrix - This can be optimized using properties
+    //of rotation matrices, maybe.
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            cameraMatrix[i*4 + j] = prime[j][i];
+        }
+        cameraMatrix[i*4 + 3] = 0.;
+    }
+    for (int i = 12; i < 15; i++) cameraMatrix[i] = 0.;
+    cameraMatrix[15] = 1.;
+    
 
-    //Euler angles in the x convention (Goldstein's)
-    float phi,theta,psi;
+    //Fast multiplication of transM * rotM
+    for (int i = 0; i < 3; i++) {
+        for (int k = 0; k < 3; k++) {
+            cameraMatrix[12 + i] += -position[k] * cameraMatrix[k * 4 + i];
+        }
+    }
     
-    //lineN is the line of nodes versor
-    float lineN[3];
-    lineN[0] = fabs(upVector[2]);
-    lineN[1] = 0.;
-    lineN[2] = -fabs(upVector[0]);
-
-    
-    float zv[] = {0.,0.,1.};
-    float yv[] = {0.,1.,0.};
-    float zpv[3];
-    zpv[0] = -pointingDirection[0];
-    zpv[1] = -pointingDirection[1];
-    zpv[2] = -pointingDirection[2];
-    
-    phi = angle(lineN, zv) * 57.295779513;
-    if (lineN[0] < 0.) phi = -phi;
-
-    theta = angle(yv, upVector) * 57.295779513;
-    if (upVector[2] < 0.) theta = -theta;
-    
-    psi = -angle(lineN, zpv) * 57.295779513;
-    if (lineN[0] < 0.) psi = -psi;
-    
-    rotatey(-phi, cameraMatrix);
-    rotatez(-theta, cameraMatrix);
-    rotatey(-psi, cameraMatrix);
-
-    translate(-position[0], -position[1], -position[2], cameraMatrix);
-
-
 }
 
 
