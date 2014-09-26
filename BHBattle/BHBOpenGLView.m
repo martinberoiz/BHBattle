@@ -119,8 +119,8 @@
     }
 
     [camera setCameraPositionAtX:x Y:y Z:z];
-    [camera lookAt:x Y:0. Z:z];
-    [camera setUpVectorX:0. Y:0. Z:-1.];
+    [camera lookAtX:x Y:0. Z:z];
+    [camera setUpVectorAtX:0. Y:0. Z:-1.];
     
     float proj[16];
     loadIdentityMatrix(proj);
@@ -159,9 +159,9 @@
 - (void)compileShaders {
     
     // 1
-    GLuint vertexShader = [self compileShader:@"SimpleVertex" 
+    GLuint vertexShader = [self compileShader:@"simpleVertex"
                                      withType:GL_VERTEX_SHADER];
-    GLuint fragmentShader = [self compileShader:@"SimpleFragment" 
+    GLuint fragmentShader = [self compileShader:@"simpleFragment"
                                        withType:GL_FRAGMENT_SHADER];
     
     // 2
